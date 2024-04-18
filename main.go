@@ -9,6 +9,7 @@ func main() {
 	gameOver := false
 	var scanerRow int
 	var scanerCol int
+	//var result string
 
 	board := [3][3]rune{}
 	for row := 0; row < len(board); row++ {
@@ -24,13 +25,23 @@ func main() {
 		fmt.Printf("Player %c enter column: ", player)
 		fmt.Scan(&scanerCol)
 
-		if player == 'X' {
-			player = 'O'
+		if board[scanerRow][scanerCol] == ' ' {
+			board[scanerRow][scanerCol] = player
+			gameOver = whoWon(board, player)
+			if gameOver {
+				fmt.Printf("Player %c have won!! ", player)
+			} else {
+				if player == 'X' {
+					player = 'O'
+				} else {
+					player = 'X'
+				}
+			}
 		} else {
-			player = 'X'
+			fmt.Println("Invalid move try again with different bracket")
 		}
 	}
-
+	printBoard(board)
 }
 
 func printBoard(board [3][3]rune) {
@@ -41,3 +52,12 @@ func printBoard(board [3][3]rune) {
 		fmt.Println()
 	}
 }
+
+func whoWon(board [3][3]rune, player rune) bool {
+
+	return false
+}
+
+// func saveScore(result string) {
+
+// }
