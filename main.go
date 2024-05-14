@@ -65,6 +65,14 @@ func whoWon(board [3][3]rune, player rune) bool {
 		}
 	}
 
+	if board[0][0] == player && board[1][1] == player && board[2][2] == player {
+		return true
+	}
+
+	if board[0][2] == player && board[1][1] == player && board[2][0] == player {
+		return true
+	}
+
 	return false
 }
 
