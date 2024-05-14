@@ -54,6 +54,16 @@ func printBoard(board [3][3]rune) {
 }
 
 func whoWon(board [3][3]rune, player rune) bool {
+	for row := 0; row < len(board); row++ {
+		if board[row][0] == player && board[row][1] == player && board[row][2] == player {
+			return true
+		}
+	}
+	for col := 0; col < len(board); col++ {
+		if board[0][col] == player && board[1][col] == player && board[2][col] == player {
+			return true
+		}
+	}
 
 	return false
 }
